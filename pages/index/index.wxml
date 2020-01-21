@@ -1,13 +1,21 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="index-page">
+  <view class="index-page-bg">
+    <image class="page-bg-img" scr="https://www.xvue.cn/txmini/bg.jpg" mode="widthFix"></image>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="index-content">
+    <view class="content-top">
+      <view class="user-img-content">
+        <image class="user-img" src="{{!isWeChatAvatarUrl?uploadImg:isWeChatAvatarUrl?userInfo.avatarUrl:''}}"></image>
+        <image class="user-border-img" src="{{borderImg}}"></image>
+      </view>
+      <view class="user-login">
+      <view wx:if="{{!userInfo}}">
+      <button class="click-btn click-login-btn" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">点击登录</button>
+      </view>
+      <view class="other-btn-con">
+      
+      </view>
+      </view>
+    </view>
   </view>
 </view>
