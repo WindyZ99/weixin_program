@@ -13,9 +13,18 @@
       <button class="click-btn click-login-btn" open-type="getUserInfo" bindgetuserinfo="bindgetuserinfo">点击登录</button>
       </view>
       <view class="other-btn-con">
-      
+      <button class="click-btn click-upload-btn" wx:if="{{userInfo && !isWechatAvatarUrl}}" bindtap="changeAvatarUrl">切换微信头像</button>
+      <button class="click-btn click-upload-btn" wx:if="{{!userInfo || isWechatAvatarUrl}}" bindtap="uploadPhoto">上传本地头像</button>
+      <button class="click-btn click-upload-btn" bindtap="selectBorderImg">选择头像框</button>
+      <button class="click-btn click-upload-btn" bindtap="savePhoto">保存头像</button>
+      <button class="click-btn click-login-btn" open-type="contact">联系客服</button>
       </view>
       </view>
     </view>
+    <official-account style="position:absolute;bottom:0;left:0;right:0;"></official-account>
   </view>
+</view>
+
+<view class="hidden-canvas">
+<canvas canvas-id="canvas" style="width:{{canvas.width}}px;height:{{canvas.height}}px">
 </view>
